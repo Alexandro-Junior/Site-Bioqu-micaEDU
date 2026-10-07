@@ -45,9 +45,9 @@ Depois abra http://localhost:8137.
 
 O plano gratuito (Spark) oferece 10 GB de armazenamento e 360 MB de
 tráfego por dia, o que basta para o site, que tem menos de 1 MB. Os
-arquivos de instalação do app **não** ficam aqui: ficam nas versões
-(Releases) do repositório do app, que não limitam downloads, e os botões do
-site apontam para lá.
+arquivos de instalação do app **não** vão para o Firebase: ficam nas
+versões (Releases) deste repositório, que não limitam downloads, e os
+botões do site apontam para lá.
 
 1. Instale o Firebase CLI (precisa do Node.js):
    ```bash
@@ -70,10 +70,13 @@ O endereço aparece no fim, no formato `https://SEU-PROJETO.web.app`.
 
 ## Quando sair uma versão nova do app
 
-1. No repositório do app, publique os arquivos `BioquimicaEDU-Windows.exe`
-   e `BioquimicaEDU-Android.apk` numa versão (Release), com esses nomes
-   exatos. Os links usam `releases/latest/download/`, então apontam sempre
-   para a versão mais recente.
+1. Neste repositório, crie uma versão (Releases › Draft a new release, com
+   uma etiqueta como `v0.4`) e anexe os arquivos `BioquimicaEDU-Windows.exe`
+   e `BioquimicaEDU-Android.apk`, com esses nomes exatos. Os arquivos ficam
+   na versão, não no código do repositório: assim o histórico continua leve
+   e não há o limite de 100 MB por arquivo. Os links usam
+   `releases/latest/download/`, então apontam sempre para a versão mais
+   recente.
 2. Em `config.js`:
    - atualize `versao`, `dataVersao` e os tamanhos dos arquivos;
    - mude `publicado` para `true` nos botões disponíveis;
@@ -87,8 +90,12 @@ sem link.
 ## Capturas de tela
 
 As imagens em `imagens/` são geradas pelo próprio app, com um progresso de
-exemplo, pelo script `criar_capturas_site.py` do repositório do app.
-Depois de gerá-las, copie a pasta `site/imagens/` de lá para cá.
+exemplo, pelo script `criar_capturas_site.py` do repositório do app. Dá
+para gravá-las direto aqui, passando a pasta `imagens/` deste repositório:
+
+```bash
+python criar_capturas_site.py C:\caminho\para\Site-BioquimicaEDU\imagens
+```
 
 ## Créditos
 
