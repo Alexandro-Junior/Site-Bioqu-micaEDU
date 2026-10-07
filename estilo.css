@@ -255,3 +255,9 @@ cite { font-style: italic; }
 .rodape { border-top: 1px solid var(--borda); padding: 32px 0 40px; }
 .rodape__linha { display: flex; gap: 16px; align-items: flex-start; }
 .rodape p { margin: 0; color: var(--tinta2); font-size: .95rem; }
+
+/* ── página de Libras ───────────────────────────────────────── */
+.libras__titulo { margin-top: 0; }
+.libras__cartao { margin: 24px 0 16px; padding: 24px; }
+.libras__rotulo { font-size: .9rem; font-weight: 700; color: var(--tinta2); margin: 0 0 8px; }
+.libras__texto { font-size: 1.35rem; line-height: 1.6; color: var(--tinta); margin: 0; cursor: pointer; }
