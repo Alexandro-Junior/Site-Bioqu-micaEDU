@@ -1,5 +1,8 @@
 # Site do BioquímicaEDU
 
+No ar em **https://bioquimicaedu.web.app** (Firebase Hosting, projeto
+`bioquimicaedu-cf2b2`).
+
 Página de apresentação e download do **BioquímicaEDU**, app gratuito para
 estudar 20 marcadores bioquímicos com revisão espaçada, casos clínicos e um
 tutor com inteligência artificial, para computador, tablet e celular.
@@ -57,16 +60,14 @@ botões do site apontam para lá.
    ```bash
    firebase login
    ```
-3. Escolha o projeto do Firebase (pode ser o mesmo do login do app):
-   ```bash
-   firebase use --add
-   ```
-4. Publique:
+3. Publique (o projeto e o endereço já estão em `.firebaserc` e
+   `firebase.json`):
    ```bash
    firebase deploy --only hosting
    ```
 
-O endereço aparece no fim, no formato `https://SEU-PROJETO.web.app`.
+Só os arquivos do site são publicados: `firebase.json` exclui o README,
+os arquivos ocultos e a pasta `.git`.
 
 ## Quando sair uma versão nova do app
 
