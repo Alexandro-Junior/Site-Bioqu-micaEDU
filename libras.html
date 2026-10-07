@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tradução para Libras — BioquímicaEDU</title>
+  <meta name="description" content="Tradução para Libras, pelo VLibras, de um trecho do BioquímicaEDU.">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#0E7C5A">
+  <link rel="icon" type="image/svg+xml" href="imagens/simbolo.svg">
+  <link rel="stylesheet" href="estilo.css?v=2">
+  <script src="libras.js" defer></script>
+</head>
+<body>
+  <header class="topo">
+    <div class="largura topo__linha">
+      <span class="topo__marca">
+        <picture>
+          <source srcset="imagens/logo-negativo.svg" media="(prefers-color-scheme: dark)">
+          <img src="imagens/logo.svg" alt="BioquímicaEDU" width="196" height="44">
+        </picture>
+      </span>
+    </div>
+  </header>
+
+  <main class="secao">
+    <div class="largura estreita">
+      <h1 class="libras__titulo">Tradução para Libras</h1>
+      <p class="secao__intro">
+        O tradutor VLibras abre sozinho, à direita, e traduz o texto abaixo. Para ver
+        de novo, clique no texto.
+      </p>
+      <div class="cartao libras__cartao">
+        <p class="libras__rotulo">Texto do BioquímicaEDU</p>
+        <p id="texto" class="libras__texto">Carregando…</p>
+      </div>
+      <p id="estado" class="aviso aviso--neutro" role="status" aria-live="polite">
+        Abrindo o tradutor VLibras…
+      </p>
+      <p class="nota">
+        A tradução é feita pelo <strong>VLibras</strong>, ferramenta gratuita do Governo
+        Federal: o texto é enviado aos servidores do VLibras para ser traduzido. O
+        tradutor leva alguns segundos para carregar na primeira vez e precisa de internet.
+      </p>
+    </div>
+  </main>
+
+  <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+</body>
+</html>
