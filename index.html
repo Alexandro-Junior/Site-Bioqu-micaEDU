@@ -311,5 +311,23 @@
       </p>
     </div>
   </footer>
+  <!-- Aberta por app.js ao clicar em "Baixar para Windows" (sem JavaScript, o link baixa direto) -->
+  <dialog class="janela" id="aviso-windows" aria-labelledby="aviso-windows-titulo" aria-describedby="aviso-windows-texto">
+    <h2 id="aviso-windows-titulo">Antes de abrir o instalador</h2>
+    <p id="aviso-windows-texto">
+      Na primeira vez, o Windows pode mostrar <strong>“O Windows protegeu o computador”</strong>.
+      É normal: o aviso aparece porque o app não tem assinatura digital paga, e não por haver algum
+      problema. O código é aberto.
+    </p>
+    <ol class="janela__passos">
+      <li>Clique em <strong>Mais informações</strong>.</li>
+      <li>Clique em <strong>Executar assim mesmo</strong>.</li>
+    </ol>
+    <div class="janela__acoes">
+      <a class="botao" id="aviso-windows-baixar" href="#baixar" download>Baixar agora</a>
+      <button type="button" class="botao botao--contorno" data-fechar-janela>Cancelar</button>
+    </div>
+  </dialog>
 </body>
+
 </html>

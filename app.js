@@ -39,6 +39,26 @@
     }
   });
 
+  // Windows: antes de baixar, explica o aviso "O Windows protegeu o computador".
+  // Sem suporte a <dialog> (navegadores muito antigos), o link baixa direto.
+  var janela = document.getElementById("aviso-windows");
+  var windows = cfg.windows || {};
+  if (janela && typeof janela.showModal === "function" && windows.publicado && windows.url) {
+    var baixar = document.getElementById("aviso-windows-baixar");
+    baixar.href = windows.url;
+    document.querySelectorAll('[data-download="windows"]').forEach(function (botao) {
+      botao.addEventListener("click", function (evento) {
+        evento.preventDefault();
+        janela.showModal();
+      });
+    });
+    // o download começa pelo próprio link; a janela fecha logo depois
+    baixar.addEventListener("click", function () { setTimeout(function () { janela.close(); }, 300); });
+    janela.querySelector("[data-fechar-janela]").addEventListener("click", function () { janela.close(); });
+    // clique fora da caixa fecha, como o Esc
+    janela.addEventListener("click", function (evento) { if (evento.target === janela) janela.close(); });
+  }
+
   // aviso do tutor enquanto o servidor de IA não está no ar
   if (!cfg.tutorComIA) {
     document.querySelectorAll('[data-se-tutor="desligado"]').forEach(function (el) { el.hidden = false; });

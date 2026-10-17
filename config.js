@@ -8,14 +8,14 @@
  * o que acabaria em poucos downloads.
  */
 window.BIOQ = {
-  versao: "0.4",
+  versao: "0.5",
   dataVersao: "outubro de 2026",
 
   // "publicado: false" mostra o botão como "Em breve", sem link.
   windows: {
-    publicado: false,
+    publicado: true,
     url: "https://github.com/Alexandro-Junior/Site-Bioqu-micaEDU/releases/latest/download/BioquimicaEDU-Windows.exe",
-    tamanho: "",          // ex.: "41 MB"
+    tamanho: "41 MB",
   },
   android: {
     publicado: false,
@@ -25,7 +25,7 @@ window.BIOQ = {
 
   // true quando o servidor intermediário do tutor estiver no ar
   // (docs/TUTOR_GEMINI.md, parte 3, no repositório do app)
-  tutorComIA: false,
+  tutorComIA: true,
 
   codigoFonte: "https://github.com/Alexandro-Junior/bioquimica-edu",
 };
