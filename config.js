@@ -8,7 +8,7 @@
  * o que acabaria em poucos downloads.
  */
 window.BIOQ = {
-  versao: "0.5",
+  versao: "0.6",
   dataVersao: "outubro de 2026",
 
   // "publicado: false" mostra o botão como "Em breve", sem link.
@@ -18,9 +18,9 @@ window.BIOQ = {
     tamanho: "41 MB",
   },
   android: {
-    publicado: false,
+    publicado: true,
     url: "https://github.com/Alexandro-Junior/Site-Bioqu-micaEDU/releases/latest/download/BioquimicaEDU-Android.apk",
-    tamanho: "",
+    tamanho: "24 MB",
   },
 
   // true quando o servidor intermediário do tutor estiver no ar

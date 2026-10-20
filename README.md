@@ -4,8 +4,10 @@ No ar em **https://bioquimicaedu.web.app** (Firebase Hosting, projeto
 `bioquimicaedu-cf2b2`).
 
 Página de apresentação e download do **BioquímicaEDU**, app gratuito para
-estudar 20 marcadores bioquímicos com revisão espaçada, casos clínicos e um
-tutor com inteligência artificial, para computador, tablet e celular.
+estudar 22 marcadores bioquímicos com revisão espaçada, casos clínicos, jogos
+e um tutor com inteligência artificial, para computador, tablet e celular.
+Também hospeda a página de tradução para Libras e o aviso de privacidade do
+app.
 
 O app é resultado do projeto de iniciação científica *Desenvolvimento de
 software educacional para o ensino interativo de bioquímica clínica:
@@ -16,18 +18,26 @@ O código do app está em
 ## O que tem aqui
 
 É um site estático: HTML, CSS e um pouco de JavaScript, sem bibliotecas
-externas. Fontes e imagens estão no próprio repositório, e nenhum arquivo é
-carregado de outros servidores (nem fontes, nem análise de visitas).
+externas. Fontes e imagens estão no próprio repositório. A única exceção é a
+página `/libras`, que carrega o VLibras, do Governo Federal. Não há cookies
+nem análise de visitas.
 
 ```
-index.html     a página
-estilo.css     cores e fonte do app, tema claro e escuro
-config.js      versão e links de download: o único arquivo a editar por versão
-app.js         preenche os botões e destaca a versão certa para o aparelho de quem visita
-imagens/       logo e capturas de tela do app (WebP)
-fontes/        Atkinson Hyperlegible (licença SIL OFL, em fontes/OFL.txt)
-firebase.json  configuração do Firebase Hosting (com cabeçalhos de segurança)
+index.html        a página
+privacidade.html  aviso de privacidade do app (LGPD); o app leva até ele
+libras.html       tradução para Libras: o app abre /libras#t=<texto> e o VLibras traduz
+libras.js         lê o texto do endereço e o entrega ao VLibras
+estilo.css        cores e fonte do app, tema claro e escuro
+config.js         versão, tamanhos e links de download
+app.js            preenche os botões e destaca a versão certa para o aparelho de quem visita
+imagens/          logo e capturas de tela do app (WebP)
+fontes/           Atkinson Hyperlegible (licença SIL OFL, em fontes/OFL.txt)
+firebase.json     configuração do Firebase Hosting (com cabeçalhos de segurança)
 ```
+
+A política de segurança de conteúdo (CSP) vale para a página inicial e para
+o aviso de privacidade. A página `/libras` fica sem ela porque o VLibras
+carrega código de outro servidor.
 
 A página segue as cores e a fonte do app, se adapta a celular, tablet e
 computador, respeita o tema escuro e a opção de reduzir animações do
@@ -72,7 +82,7 @@ os arquivos ocultos e a pasta `.git`.
 ## Quando sair uma versão nova do app
 
 1. Neste repositório, crie uma versão (Releases › Draft a new release, com
-   uma etiqueta como `v0.4`) e anexe os arquivos `BioquimicaEDU-Windows.exe`
+   uma etiqueta como `v0.6`) e anexe os arquivos `BioquimicaEDU-Windows.exe`
    e `BioquimicaEDU-Android.apk`, com esses nomes exatos. Os arquivos ficam
    na versão, não no código do repositório: assim o histórico continua leve
    e não há o limite de 100 MB por arquivo. Os links usam
@@ -83,7 +93,11 @@ os arquivos ocultos e a pasta `.git`.
    - mude `publicado` para `true` nos botões disponíveis;
    - mude `tutorComIA` para `true` quando o servidor do tutor com IA
      estiver no ar.
-3. Publique de novo: `firebase deploy --only hosting`.
+3. Confira se `versao` é a mesma do `buildozer.spec` do app e atualize no
+   `index.html` as contagens de conteúdo (marcadores, cards, questões,
+   casos), que ficam fixas no texto.
+4. Publique de novo: `firebase deploy --only hosting`.
+5. Teste os links com `curl -I` (devem responder 302 e depois 200).
 
 Enquanto `publicado` estiver `false`, o botão aparece como "Em breve",
 sem link.
@@ -101,7 +115,7 @@ python criar_capturas_site.py C:\caminho\para\Site-BioquimicaEDU\imagens
 ## Créditos
 
 - Aluno: Alexandro de Araujo Junior
-- Orientador: Prof. Francisco de Assis Cavallaro
+- Orientador: Prof. Dr. Francisco de Assis Cavallaro
 - Universidade Cidade de São Paulo (UNICID), PIBIC/CNPq
 - Fonte Atkinson Hyperlegible, do Braille Institute, sob a SIL Open Font
   License (`fontes/OFL.txt`)
